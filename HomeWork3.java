@@ -172,19 +172,20 @@ str.charAt(0); - метод, вернет char, который стоит в с�
         char[] userChars=userWord.toCharArray();
         char[] hiddenChars=hiddenWord.toCharArray();
         int userCharsLength=userChars.length;
-        int hiddenCharLength=hiddenChars.length;
+        int hiddenCharsLength =hiddenChars.length;
 
-        int matchesLetters=0;
-        System.out.print("Угаданные начальные буквы слова: ");
+        System.out.print("Угаданные буквы слова: ");
 
-        for (int i = 0; i < Math.min(userCharsLength, hiddenCharLength); i++) {
-            if(userChars[i]==hiddenChars[i]) {
-                System.out.print(hiddenChars[i]);
-                matchesLetters++;
-            }
+        int maxCountCharsForPrint =Math.min(userCharsLength, hiddenCharsLength);
+
+        for (int i = 0; i < maxCountCharsForPrint; i++) {
+            char charForPrint=(userChars[i]==hiddenChars[i])?hiddenChars[i]:'#';
+            System.out.print(charForPrint);
         }
-        if (matchesLetters< maxHiddenCharsLength) {
-            for (int j = 0; j < (maxHiddenCharsLength - matchesLetters); j++) {
+
+        /*выводим оставшиеся #*/
+        if (maxCountCharsForPrint < maxHiddenCharsLength) {
+            for (int j = 0; j < (maxHiddenCharsLength - maxCountCharsForPrint); j++) {
                 System.out.print("#");
             }
         }
