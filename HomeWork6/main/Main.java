@@ -1,12 +1,16 @@
-package HomeWork6;
+package homework6.main;
+
+import homework6.animals.Animals;
+import homework6.animals.Cat;
+import homework6.animals.Dog;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Домашнее задание №6");
         System.out.println("--------------------------------------------");
-        //Создаем объекты Кот и Собака:
-        Cat myCat = new Cat("Мурзик", 3, "Серый");
-        Dog myDog = new Dog("Рекс", 4, "Белый");
+        //Создаем объекты Кот и Собака. Тестируем полиформизм, все объекты класса Animals:
+        Animals myCat = new Cat("Мурзик", 3, "Серый");
+        Animals myDog = new Dog("Рекс", 4, "Белый");
 
 
         System.out.println("Проверим, как наследовался переопределенный toString():");
@@ -42,8 +46,8 @@ public class Main {
 
         //для этого создадим объекты с переопределенными лимитами
         //лимиты можно переопределить и у существующих объектов методами setMaxRunDistance(), setMaxJumpHeight(), setMaxSwimDistance()
-        Dog powerfulDog = new Dog("Мухтар", 5, "Коричневый", 600, 1.5, 50);
-        Dog weakDog = new Dog("Тузик", 1, "Белый>", 400, 0.3, 5);
+        Animals powerfulDog = new Dog("Мухтар", 5, "Коричневый", 600, 1.5, 50);
+        Animals weakDog = new Dog("Тузик", 1, "Белый>", 400, 0.3, 5);
 
         System.out.println("--------------------------------------------");
         System.out.println("Проверка методов run()");
@@ -54,5 +58,10 @@ public class Main {
         weakDog.voice();
         weakDog.run(400);       //в пределах лимита
         weakDog.run(401);       //превышение лимита
+
+        myCat.setMaxSwimDistance(10);
+        myCat.swim(5);
+
+        ((Cat)myCat).scratch(); //этот метод есть только в классе Cat, поэтому делаем приведение типа
     }
 }

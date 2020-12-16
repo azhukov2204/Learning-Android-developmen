@@ -1,4 +1,4 @@
-package HomeWork6;
+package homework6.animals;
 
 public class Dog extends Animals {
 
@@ -7,9 +7,17 @@ public class Dog extends Animals {
     private final double MAX_JUMP_HEIGHT=0.5;    //прыжок: собака 0.5 м.
     private final double MAX_SWIM_DISTANCE=10;    //плавание: собака 10 м
 
+    //что умеют делать собаки:
+    private void dogCanDo() {
+        super.setCanJump(true);
+        super.setCanRun(true);
+        super.setCanSwim(true);
+    }
+
     //Конструктор с дефолтными лимитами для собаки:
     public Dog(String name, int age, String color) {
         super(name, age, color);
+        dogCanDo();
         super.setMaxJumpHeight(MAX_JUMP_HEIGHT);
         super.setMaxRunDistance(MAX_RUN_DISTANCE);
         super.setMaxSwimDistance(MAX_SWIM_DISTANCE);
@@ -18,6 +26,7 @@ public class Dog extends Animals {
     //для мощных и не очень собачек можно задать свои лимиты:
     public Dog(String name, int age, String color, double maxRunDistance, double maxJumpDistance, double maxSwimDistance) {
         super(name, age, color);
+        dogCanDo();
         super.setMaxJumpHeight(maxJumpDistance);
         super.setMaxRunDistance(maxRunDistance);
         super.setMaxSwimDistance(maxSwimDistance);

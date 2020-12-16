@@ -1,15 +1,31 @@
-package HomeWork6;
+package homework6.animals;
 
 public abstract class Animals {
     protected String name;    //имя животного
     protected int age;        //возраст
     protected String color;   //цвет
 
-    //дополнительных логических переменных вводить не стал. Если значение лимита меньше 0 - значит животное это действие
+    //дополнительных логических переменных изначально вводить не хотел (Если значение лимита меньше 0 - значит животное это действие)
     // выполнять не может:
     private double maxRunDistance=-1;
     private double maxJumpHeight=-1;
     private double maxSwimDistance=-1;
+    //логические переменные все-таки пришлось ввести:
+    private boolean canRun=false;
+    private boolean canJump=false;
+    private boolean canSwim=false;
+
+    protected void setCanRun(boolean canRun) {
+        this.canRun = canRun;
+    }
+
+    protected void setCanJump(boolean canJump) {
+        this.canJump = canJump;
+    }
+
+    protected void setCanSwim(boolean canSwim) {
+        this.canSwim = canSwim;
+    }
 
     public Animals(String name, int age, String color) {
         this.name = name;
@@ -19,10 +35,8 @@ public abstract class Animals {
 
     public abstract void voice(); //у всех жимотных "голоса разные", поэтому метод делаю абстрактным
 
-    //Добавлю сеттеры для установки ограничений на заявленные действия (эти свойства сделал private):
-    public void setMaxRunDistance(double maxRunDistance) {
-        this.maxRunDistance = maxRunDistance;
-    }
+    //Добавлю сеттеры для установки ограничений на заявленные действия (эти свойства сделал private).
+    public void setMaxRunDistance(double maxRunDistance) { this.maxRunDistance = maxRunDistance; }
 
     public void setMaxJumpHeight(double maxJumpHeight) {
         this.maxJumpHeight = maxJumpHeight;
@@ -41,7 +55,7 @@ public abstract class Animals {
 
     //собственно реализация заявленных методов run, jump и swim:
     public void run(double distance) {
-        if (maxRunDistance<0) {
+        if (maxRunDistance<0 || !canRun) {
             System.out.println("Я не умею бегать");
         } else if (distance<0) {
             System.out.println("Введено отрицательное значение distance = " + distance);
@@ -54,7 +68,7 @@ public abstract class Animals {
     }
 
     public void jump(double height) {
-        if (maxJumpHeight<0) {
+        if (maxJumpHeight<0 || !canJump) {
             System.out.println("Я не умею прыгать");
         } else if (height<0) {
             System.out.println("Введено отрицательное значение height = " + height);
@@ -67,7 +81,7 @@ public abstract class Animals {
 
 
     public void swim(double distance) {
-        if (maxSwimDistance<0) {
+        if (maxSwimDistance<0 || !canSwim) {
             System.out.println("Я не умею плавать");
         } else if (distance<0) {
             System.out.println("Введено отрицательное значение distance = " + distance);
