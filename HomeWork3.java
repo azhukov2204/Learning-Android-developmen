@@ -141,7 +141,7 @@ str.charAt(0); - метод, вернет char, который стоит в с�
         while(isGame) {
             attempts = 0;
             wordNotGuessed=true;
-            hiddenWordNo = getRandom(0, words.length) - 1; //загадываем слово
+            hiddenWordNo = getRandom(0, words.length - 1); //загадываем слово
             hiddenWord = words[hiddenWordNo];
             //System.out.println(hiddenWord); //для отладки
 
