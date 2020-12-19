@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="homework8.fx_graphics.ControllerGuessTheNumber">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="349.0" prefWidth="590.0" GridPane.columnIndex="1">
+         <children>
+            <Button fx:id="turnButton" layoutX="210.0" layoutY="262.0" mnemonicParsing="false" onAction="#turnGame" prefHeight="36.0" prefWidth="118.0" text="Ход игрока" />
+            <TextField fx:id="textField" layoutX="27.0" layoutY="262.0" onAction="#turnGame" prefHeight="36.0" prefWidth="169.0">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </TextField>
+            <Label fx:id="gameMessages" layoutX="27.0" layoutY="175.0" prefHeight="79.0" prefWidth="537.0" text="Тестовый текст. Будет перетерт при запуске программы. Нужен только для форматирования" textFill="#160dc9" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="newGameButton" layoutX="328.0" layoutY="262.0" mnemonicParsing="false" onAction="#newGame" prefHeight="36.0" prefWidth="118.0" text="Сыграть еще раз" />
+            <Button fx:id="doExit" layoutX="446.0" layoutY="262.0" mnemonicParsing="false" onAction="#doExit" prefHeight="36.0" prefWidth="118.0" text="Выход" />
+            <Label layoutX="36.0" layoutY="34.0" text="Выберите игру:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="choiceGame" layoutX="197.0" layoutY="34.0" onAction="#newGame" prefHeight="30.0" prefWidth="373.0" promptText="Выбери игру" />
+            <Label fx:id="greeting" layoutX="36.0" layoutY="81.0" prefHeight="111.0" prefWidth="537.0" text="Задано одно из сдедующих слов: &quot;apple&quot;, &quot;orange&quot;, &quot;lemon&quot;, &quot;banana&quot;, &quot;apricot&quot;, &quot;avocado&quot;, &quot;broccoli&quot;,            &quot;carrot&quot;, &quot;cherry&quot;, &quot;garlic&quot;, &quot;grape&quot;, &quot;melon&quot;, &quot;leak&quot;, &quot;kiwi&quot;, &quot;mango&quot;, &quot;mushroom&quot;, &quot;nut&quot;, &quot;olive&quot;, &quot;pea&quot;, &quot;peanut&quot;,            &quot;pear&quot;, &quot;pepper&quot;, &quot;pineapple&quot;, &quot;pumpkin&quot;, &quot;potato&quot;" textFill="#030128" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
